@@ -1,0 +1,33 @@
+{% extends 'BlogBundle::layout.html.twig' %}
+
+{% block content %}
+
+    {% form_theme search_form 'BlogBundle::fields.html.twig' %}
+    {{ form_start(search_form) }}
+    {{ form_end(search_form) }}
+    <ul class="collection with-header">
+        <li class="collection-header"><h4>Articles par nom</h4></li>
+        {% for article in articles_by_name %}
+            <li class="collection-item avatar">
+                {% include '@Blog/Article/article.template.html.twig' %}
+            </li>
+        {% else %}
+            <li class="collection-item avatar">No articles found</li>
+        {% endfor %}
+    </ul>
+
+    {#<h1>Articles par Tag</h1>#}
+
+    <ul class="collection">
+        <li class="collection-header"><h4>Articles par Tag</h4></li>
+        {% for article in articles_by_tag%}
+            <li class="collection-item avatar">
+                {% include '@Blog/Article/article.template.html.twig' %}
+            </li>
+        {% else %}
+            <li class="collection-item avatar">Aucun article correspond à ce tag.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+

@@ -1,0 +1,8 @@
+{% extends 'BlogBundle::layout.html.twig' %}
+
+{% block content %}
+
+    {% include '@Blog/Article/list.html.twig' %}
+
+    {% include '@Blog/Article/pagination.html.twig' %}
+{% endblock %}

@@ -1,0 +1,9 @@
+<ul class="collection">
+    {% for article in articles %}
+        <li class="collection-item avatar">
+            {% include '@Blog/Article/article.template.html.twig' %}
+        </li>
+    {% else %}
+        <li>No articles found</li>
+    {% endfor %}
+</ul>
